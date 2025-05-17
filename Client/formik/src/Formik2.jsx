@@ -50,10 +50,10 @@ const Formik2 = () => {
     <>
     <div className='main-div flex justify-center items-center bg-slate-600 w-full max-w-[400px] m-auto p-1 shadow-2xl pl-3 pr-3 rounded-sm mobile:w-[300px]'>
         <Formik initialValues={initialValues} validationSchema={validate} 
-        onSubmit={(values,{resetForm})=>{
+        onSubmit={async(values,{resetForm})=>{
           console.log(values)
           resetForm()
-          getdata(values)
+         await getdata(values)
         }}>
   {({handleSubmit,handleBlur,handleChange,errors,touched,values})=>(
     <Form onSubmit={handleSubmit}>
