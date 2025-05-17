@@ -6,7 +6,7 @@ import * as yup from 'yup'
 const Formik2 = () => {
 
     const getdata=async (values)=>{
-      const fetchData=await fetch("http://localhost:3000/form",{
+      const fetchData=await fetch(`${import.meta.env.VITE_API_URL}/form`,{
         method:"POST",
         headers:{
             "Content-Type":"application/json"
