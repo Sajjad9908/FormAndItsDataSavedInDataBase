@@ -6,7 +6,7 @@ import * as yup from 'yup'
 const Formik2 = () => {
 
     const getdata=async (values)=>{
-      const fetchData=await fetch(`${import.meta.env.VITE_API_URL}/form`,{
+      const fetchData=await fetch(`http://localhost:3000/form`,{
         method:"POST",
         headers:{
             "Content-Type":"application/json"
@@ -50,10 +50,10 @@ const Formik2 = () => {
     <>
     <div className='main-div flex justify-center items-center bg-slate-600 w-full max-w-[400px] m-auto p-1 shadow-2xl pl-3 pr-3 rounded-sm mobile:w-[300px]'>
         <Formik initialValues={initialValues} validationSchema={validate} 
-        onSubmit={async(values,{resetForm})=>{
+        onSubmit={(values,{resetForm})=>{
           console.log(values)
           resetForm()
-         await getdata(values)
+         getdata(values)
         }}>
   {({handleSubmit,handleBlur,handleChange,errors,touched,values})=>(
     <Form onSubmit={handleSubmit}>

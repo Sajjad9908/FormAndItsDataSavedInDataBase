@@ -1,14 +1,16 @@
 const express=require('express')
 const app=express()
-const port=process.env.PORT || 3000;
+const port= 3000;
 const mongoose=require('mongoose')
 const cors=require('cors')
 const bodyParser = require('body-parser')
 const routes=require('./router/routes')
 const newSchema=require('./moduele/formModuele')
 
+
+
 app.use(cors({
-    origin: 'https://form-and-its-data-saved-in-data-base-braf.vercel.app',
+    origin: 'http://localhost:5173',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true
